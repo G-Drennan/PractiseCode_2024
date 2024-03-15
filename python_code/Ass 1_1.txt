@@ -1,0 +1,77 @@
+def make_dict(s):
+    split = [s[i:i+2] for i in range(0, len(s), 2)]
+    swapairs = {}
+    for init in split:
+        swapairs[init] = {init[0]: init[1], init[1]: init[0]}
+    return swapairs
+
+s = 'VFSC'
+swapairs = make_dict(s)
+string = 'I lofe ctudying artivisial intelligense.'
+Split = list(string)
+print(string) 
+for charPair in swapairs:
+  for n, char in enumerate(Split):
+    if char.upper() in charPair:
+      if char.isupper():
+        Split[n] = swapairs[charPair][char.upper()]
+      else:
+         Split[n] = swapairs[charPair][char.upper()].lower()
+print("".join(Split))
+
+
+def getCypher(key,indicator):
+  swapairs = {} 
+  split = [key[i:i+2] for i in range(0, len(key), 2)]
+  #lenSplit = len(split)
+  
+  #if indicator == 'd':
+  """
+  for n, init in enumerate(split):
+    if n == 0 or n % 2 == 0: #check its even
+      swap = split[n+1]
+    else:
+      swap = split[n-1] 
+    swapairs[init] = swap"""
+ 
+    
+  '''
+  else:
+    for n, init in enumerate(split):
+        nback = lenSplit - n
+        if nback == 0 or nback % 2 == 0: #check its even
+           swap = split[nback]
+        else:
+           swap = split[nback] 
+        swapairs[init] = swap '''
+  
+  print(swapairs) 
+  return swapairs 
+
+def decode_encode(key, filename, indicator):
+    swapairs = getCypher(key, indicator)  
+    x = open(filename).read()
+    fedit = list(x) 
+    print(x)
+    """
+    for i, c in enumerate(fedit):
+      if c.upper() in swapairs: 
+         for n in swapairs:
+            if c.upper() == n:
+              if c.isupper():
+                fedit[i] = swapairs[n] 
+              else:
+                 fedit[i] = swapairs[n].lower() """
+                  
+    return "".join(fedit)   
+ 
+def task1(key, filename, indicator): 
+    string = decode_encode(key, filename, indicator)
+    return string
+  
+if __name__ == '__main__':
+    # Example function calls below, you can add your own to test the task1 function
+    print(task1('AE', 'spain.txt', 'd'))
+    print(task1('VFSC', 'ai.txt', 'd'))
+    print(task1('ABBC', 'cabs_plain.txt', 'e'))
+    print(task1('ABBC', 'myTest.txt', 'd'))
