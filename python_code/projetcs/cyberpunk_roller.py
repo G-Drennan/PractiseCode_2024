@@ -130,7 +130,7 @@ n = 0;
 
 Racers = []
 RacerTags = ["Aldecaldo 1", "Aldecaldo 2", "Jodes 1", "Blood Nation 1", "Meta 1", "Wraiths 1", "Wraiths 2" ]
-print("Initilizing...\n")
+print("Initilizing Race...\n") 
 while n<len(RacerTags): 
     if "Aldecaldo" in RacerTags[n] or "Meta" in RacerTags[n]:
         Racers.append(outrider(n, RacerTags[n]))
